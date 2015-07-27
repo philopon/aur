@@ -1,0 +1,5 @@
+*.pkg.tar.xz
+pkg
+src
+libarib25-git/libarib25
+pt3-drv-git/pt3

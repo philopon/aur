@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkgname=libarib25
+pkgname=libarib25-git
 pkgver=r6.6b47a28
 pkgrel=1
 pkgdesc="ARIB STD-B25 library for linux"
