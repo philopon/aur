@@ -1,0 +1,24 @@
+#!/bin/bash
+
+pkgname=pt3-drv-git
+pkgver=r103.92ce42a
+pkgrel=1
+pkgdesc="PT3 driver for linux"
+arch=('x86_64')
+url="https://github.com/m-tsudo/pt3"
+license=('GPL3')
+depends=('dkms')
+makedepends=('git')
+install=${pkgname}.install
+source=('git+https://github.com/m-tsudo/pt3.git')
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/pt3"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)" 
+}
+
+package() {
+  mkdir -p ${pkgdir}/usr/src/pt3-drv-${pkgver}
+  cp -r $srcdir/pt3/* "${pkgdir}/usr/src/pt3-drv-${pkgver}"
+}
