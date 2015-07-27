@@ -1,0 +1,29 @@
+#!/bin/bash
+
+pkgname=recpt1-git
+pkgver=r20.d650665
+pkgrel=1
+pkgdesc="recpt1(STZ)"
+arch=('x86_64')
+url="https://github.com/stz2012/recpt1"
+license=('GPL3')
+depends=('libarib25')
+source=('git+https://github.com/stz2012/recpt1')
+md5sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/recpt1"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build(){
+  cd $srcdir/recpt1/recpt1
+  ./autogen.sh
+  ./configure --enable-b25
+  make
+}
+
+package(){
+  mkdir -p $pkgdir/usr/bin
+  cp $srcdir/recpt1/recpt1/recpt1 $pkgdir/usr/bin/recpt1
+}
