@@ -2,7 +2,7 @@
 
 pkgname=pt3-drv-git
 pkgver=r103.92ce42a
-pkgrel=2
+pkgrel=3
 pkgdesc="PT3 driver for linux"
 arch=('x86_64')
 url="https://github.com/m-tsudo/pt3"
@@ -21,5 +21,8 @@ pkgver() {
 
 package() {
   mkdir -p ${pkgdir}/usr/src/pt3-drv-${pkgver}
+  mkdir -p ${pkgdir}/etc/modprobe.d
+
+  echo blacklist earth_pt3 > ${pkgdir}/etc/modprobe.d/pt3-drv.conf
   cp -r $srcdir/pt3/* "${pkgdir}/usr/src/pt3-drv-${pkgver}"
 }
