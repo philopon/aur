@@ -2,7 +2,7 @@
 
 pkgname=pt3-drv-git
 pkgver=r103.92ce42a
-pkgrel=1
+pkgrel=2
 pkgdesc="PT3 driver for linux"
 arch=('x86_64')
 url="https://github.com/m-tsudo/pt3"
@@ -12,6 +12,7 @@ makedepends=('git')
 install=${pkgname}.install
 source=('git+https://github.com/m-tsudo/pt3.git')
 md5sums=('SKIP')
+provides=('pt3-drv')
 
 pkgver() {
   cd "$srcdir/pt3"

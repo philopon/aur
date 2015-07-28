@@ -2,7 +2,7 @@
 
 pkgname=libarib25-git
 pkgver=r6.6b47a28
-pkgrel=1
+pkgrel=2
 pkgdesc="ARIB STD-B25 library for linux"
 arch=('x86_64')
 url="https://github.com/stz2012/libarib25"
@@ -11,6 +11,7 @@ depends=('pcsclite')
 install=$pkgname.install
 source=('git+https://github.com/stz2012/libarib25.git')
 md5sums=('SKIP')
+provides=('libarib25')
 
 pkgver(){
   cd "$srcdir/libarib25"
