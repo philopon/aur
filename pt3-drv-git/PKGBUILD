@@ -2,7 +2,7 @@
 
 pkgname=pt3-drv-git
 pkgver=r103.92ce42a
-pkgrel=3
+pkgrel=4
 pkgdesc="PT3 driver for linux"
 arch=('x86_64')
 url="https://github.com/m-tsudo/pt3"
@@ -17,6 +17,11 @@ provides=('pt3-drv')
 pkgver() {
   cd "$srcdir/pt3"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)" 
+}
+
+prepare() {
+  cd "$srcdir/pt3"
+  patch -i $srcdir/../pt3-drv-git.patch
 }
 
 package() {

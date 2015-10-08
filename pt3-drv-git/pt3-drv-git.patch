@@ -1,0 +1,9 @@
+--- pt3.orig/pt3_pci.h	2015-10-08 15:08:56.848237902 +0900
++++ pt3/pt3_pci.h	2015-10-08 15:09:45.865283694 +0900
+@@ -21,6 +21,7 @@
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,37)
+ void * pt3_vzalloc(unsigned long size);
+ #else
++#include <linux/vmalloc.h>
+ #define pt3_vzalloc vzalloc
+ #endif
