@@ -1,0 +1,31 @@
+pkgname=rdkit-python
+_pkgname=RDKit
+pkgver=2015_09_2
+pkgrel=1
+pkgdesc="RDKit - A collection of cheminformatics and machine-learning software written in C++ and Python."
+arch=("i686" "x86_64")
+url="http://rdkit.org/"
+license=('New BSD License')
+depends=( 'bison' 'boost' 'boost-libs' 'cmake' 'flex' 'python' 'python-numpy' 'sqlite3' )
+source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz )
+md5sums=('889fc8bda9d59ce3b72bf6252c630287')
+provides=('rdkit')
+
+build() {
+  cd ${srcdir}
+  mkdir build
+  cd build
+  cmake ../rdkit-Release_${pkgver} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DRDK_INSTALL_INTREE=0 \
+    -DCMAKE_INSTALL_PREFIX=/opt/rdkit-python \
+    -DPYTHON_LIBRARY=/usr/lib/python3.5/config-3.5m/libpython3.5m.so \
+    -DPYTHON_INCLUDE_DIR=/usr/include/python3.5m/ \
+    -DPYTHON_EXECUTABLE=/usr/bin/python3
+  make
+}
+
+package() {
+  cd ${srcdir}/build
+  make DESTDIR=${pkgdir} install 
+}
