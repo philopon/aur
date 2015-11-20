@@ -7,8 +7,8 @@ arch=("i686" "x86_64")
 url="http://rdkit.org/"
 license=('New BSD License')
 depends=( 'bison' 'boost' 'boost-libs' 'cmake' 'flex' 'python' 'python-numpy' 'sqlite3' )
-source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz )
-md5sums=('889fc8bda9d59ce3b72bf6252c630287')
+source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz rdkit.sh)
+md5sums=('889fc8bda9d59ce3b72bf6252c630287' SKIP)
 provides=('rdkit')
 
 build() {
@@ -28,4 +28,6 @@ build() {
 package() {
   cd ${srcdir}/build
   make DESTDIR=${pkgdir} install 
+  mkdir $pkgdir/opt/rdkit-python/bin
+  cp $srcdir/rdkit.sh $pkgdir/opt/rdkit-python/bin/
 }
