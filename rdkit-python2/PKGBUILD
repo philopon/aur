@@ -1,14 +1,14 @@
 pkgname=rdkit-python2
 _pkgname=RDKit
-pkgver=2015_09_2
-pkgrel=2
+pkgver=2016_03_1
+pkgrel=0
 pkgdesc="RDKit - A collection of cheminformatics and machine-learning software written in C++ and Python."
 arch=("i686" "x86_64")
 url="http://rdkit.org/"
 license=('New BSD License')
 depends=( 'bison' 'boost' 'boost-libs' 'cmake' 'flex' 'python2' 'python2-numpy' 'sqlite3' )
 source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz)
-md5sums=('889fc8bda9d59ce3b72bf6252c630287')
+sha256sums=('c0ab786ba745bb355141875e6b7fcc94a55cb8709fdc3508e38575b228f668f1')
 provides=('rdkit-python2')
 
 build() {
