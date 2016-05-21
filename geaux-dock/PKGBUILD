@@ -1,0 +1,31 @@
+#!/bin/bash
+
+pkgname=geaux-dock
+pkgver=2
+pkgrel=0
+pkgdesc="GPU Accelerated Molecular Docking"
+arch=('x86_64')
+url="http://www.institute.loni.org/lasigma/package/dock"
+license=('GPL3')
+depends=('cuda' 'gcc')
+source=('http://www.institute.loni.org/lasigma/package/dock/GPUDocking-2.tgz')
+sha256sums=('a6bfbaba0bb5311b3c4e5b98502eb52402260f1e8c207c009e78f679256586fd')
+provides=('geaux-dock')
+
+prepare() {
+    cd $srcdir
+    cat GPUDocking-2.tgz | gunzip | tar zxvf -
+    cd $srcdir/GPUDocking-2
+    patch -p 1 -i $srcdir/../Makefile.patch
+}
+
+build() {
+    cd $srcdir/GPUDocking-2/src
+    make EXE=$pkgname
+}
+
+package() {
+    cd $srcdir/GPUDocking-2/src
+    mkdir -p $pkgdir/usr/bin
+    cp $pkgname $pkgdir/usr/bin/$pkgname
+}
