@@ -1,0 +1,19 @@
+#!/bin/bash
+
+pkgname=apcluster
+pkgver=1.0
+pkgrel=0
+pkgdesc="Affinity propagation"
+arch=('x86_64')
+url="http://www.psi.toronto.edu/index.php?q=affinity%20propagation"
+license=('other')
+source=('http://www.psi.toronto.edu/affinitypropagation/software/apcluster_linux64.zip')
+sha256sums=('a496871b30cd242247d1106a4f84a7458876a7c021ef17e142df2245e11356ec')
+provides=('apcluster')
+
+package() {
+    cd $srcdir
+
+    install -Dm 644 apclusterunix64.so $pkgdir/usr/lib/apclusterunix64.so
+    install -Dm 644 apcluster.h $pkgdir/usr/include/apcluster.h
+}
