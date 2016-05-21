@@ -2,11 +2,11 @@
 
 pkgname=geaux-dock
 pkgver=2
-pkgrel=0
+pkgrel=1
 pkgdesc="GPU Accelerated Molecular Docking"
 arch=('x86_64')
 url="http://www.institute.loni.org/lasigma/package/dock"
-license=('GPL3')
+license=('other')
 depends=('cuda' 'gcc')
 source=('http://www.institute.loni.org/lasigma/package/dock/GPUDocking-2.tgz')
 sha256sums=('a6bfbaba0bb5311b3c4e5b98502eb52402260f1e8c207c009e78f679256586fd')
