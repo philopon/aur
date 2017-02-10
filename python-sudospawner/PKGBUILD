@@ -1,14 +1,14 @@
 _name=sudospawner
 pkgname=python-$_name
-pkgver=0.2.0
+pkgver=0.3.0
 pkgrel=0
 pkgdesc="Spawn JupyterHub single-user servers with sudo"
 arch=("any")
 url="https://github.com/jupyterhub/sudospawner"
 license=("BSD3")
 depends=("python" "python-tornado" "jupyterhub" "jupyter-notebook")
-source=("https://github.com/jupyterhub/sudospawner/archive/0.2.0.tar.gz")
-sha256sums=("98602b88197e1eefcb03324efe3b1f2814d31d0cc646f1fd6f7067ca08565f07")
+source=("https://github.com/jupyterhub/sudospawner/archive/${pkgver}.tar.gz")
+sha256sums=("330440df3036e673f0a6e54a05dc6c8fd45546a0d879c4288026717a8d5a4d4f")
 
 build() {
     cd $srcdir/$_name-$pkgver
