@@ -6,13 +6,7 @@ REPO_NAME=home
 
 [[ -e config.sh ]] && source config.sh
 
-for pkg in */*.pkg.tar.xz; do
-	if [[ `dirname $pkg` == "repo" ]]; then
-		continue
-	fi
-	echo $pkg
-	cp $pkg repo
-done
+rsync -avu --exclude "repo/*" */*.pkg.tar.xz repo
 
 cd repo
-repo-add $REPO_NAME.db.tar.xz *.pkg.tar.xz
+repo-add "$@" $REPO_NAME.db.tar.xz *.pkg.tar.xz
