@@ -40,3 +40,6 @@
 [submodule "bazel"]
 	path = bazel
 	url = https://aur.archlinux.org/bazel.git
+[submodule "intel-parallel-studio-xe"]
+	path = intel-parallel-studio-xe
+	url = https://aur.archlinux.org/intel-parallel-studio-xe.git
