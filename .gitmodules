@@ -43,3 +43,9 @@
 [submodule "intel-parallel-studio-xe"]
 	path = intel-parallel-studio-xe
 	url = https://aur.archlinux.org/intel-parallel-studio-xe.git
+[submodule "influxdb"]
+	path = influxdb
+	url = https://aur.archlinux.org/influxdb.git
+[submodule "telegraf"]
+	path = telegraf
+	url = https://aur.archlinux.org/telegraf.git
