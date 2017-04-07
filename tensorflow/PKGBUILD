@@ -24,6 +24,7 @@ pkgver() {
 
 prepare() {
   cd ${srcdir}/tensorflow
+  patch < ${srcdir}/../configure.patch
   # setup environment variables
   export PYTHON_BIN_PATH=/usr/bin/python
   export USE_DEFAULT_PYTHON_LIB_PATH=1

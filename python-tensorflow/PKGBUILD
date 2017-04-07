@@ -32,6 +32,9 @@ prepare() {
   export TF_NEED_JEMALLOC=1
   export TF_ENABLE_XLA=1
 
+  cd $srcdir/tensorflow-1.0.1
+  patch < ${srcdir}/../configure.patch
+
   if (pacman -Q cuda cudnn &> /dev/null); then
     msg2 "Compiling with GPU/CUDA support"
 
