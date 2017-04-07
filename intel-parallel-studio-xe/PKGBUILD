@@ -34,7 +34,6 @@
 
 pkgbase="intel-parallel-studio-xe"
 pkgname=('intel-compiler-base' 'intel-fortran-compiler' 'intel-ipp' 'intel-mkl' 'intel-mpi' 'intel-tbb_psxe' 'intel-vtune-amplifier-xe' 'intel-inspector' 'intel-advisor' )
-PKGEXT='.pkg.tar.lzo'
 packager="Ignat Harczuk"
 
 ########################################
@@ -88,7 +87,7 @@ pkgver=${_year}.${_icc_ver}.${_v_a}.${_v_b}
 
 _dir_nr='11298'
 
-options=(strip libtool staticlibs)
+options=(!strip libtool staticlibs)
 
 url="http://software.intel.com/en-us/articles/non-commercial-software-download/"
 arch=('x86_64')
