@@ -16,3 +16,4 @@ repo
 influxdb/influxdb/
 telegraf/telegraf/
 tensorflow/tensorflow/
+slackcat/slackcat/
