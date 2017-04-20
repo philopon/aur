@@ -18,3 +18,4 @@ telegraf
 tensorflow
 yarn
 git-lfs
+systemd-zpool-scrub
