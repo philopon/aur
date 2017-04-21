@@ -1,7 +1,7 @@
 _pkgname=RDKit
 
 pkgname=(rdkit-python rdkit-python2)
-pkgver=2016_09_4
+pkgver=2017_03_1
 pkgrel=1
 pkgdesc="RDKit - A collection of cheminformatics and machine-learning software written in C++ and Python."
 arch=("i686" "x86_64")
@@ -14,7 +14,7 @@ _py2dep="python2=${_py2ver}.13"
 makedepends=('bison' 'boost' 'cmake' 'flex' $_py3dep $_py2dep 'python-numpy' 'python2-numpy' 'sqlite3')
 _commondepends=('boost-libs=1.63.0' 'sqlite')
 source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz)
-sha256sums=('aa1d7ee6e9b58c9ad31996eb8ef43703d5497781dc3b4067ce6d38cec7cae172')
+sha256sums=('66b0ac9ee795411efa478fff6707c68177abf0aad9ec9d8948893d625cd48417')
 
 build() {
     mkdir $srcdir/{build-python,build-python2}
