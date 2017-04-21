@@ -1,0 +1,18 @@
+pkgbase = env-modules
+	pkgdesc = Provides for an easy dynamic modification of a user's environment via modulefile.
+	pkgver = 3.2.10
+	pkgrel = 3
+	url = https://sourceforge.net/projects/modules/
+	arch = i686
+	arch = x86_64
+	license = GPLv2
+	checkdepends = dejagnu
+	depends = tcl>=7.4
+	depends = procps-ng
+	source = https://sourceforge.net/projects/modules/files/Modules/modules-3.2.10/modules-3.2.10.tar.gz
+	source = modules.sh
+	md5sums = 8b097fdcb90c514d7540bb55a3cb90fb
+	md5sums = af64d4aadd68d406d04ded2f33f77e04
+
+pkgname = env-modules
+
