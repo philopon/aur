@@ -2,14 +2,14 @@ _pkgname=RDKit
 
 pkgname=(rdkit-python rdkit-python2)
 pkgver=2017_03_1
-pkgrel=1
+pkgrel=2
 pkgdesc="RDKit - A collection of cheminformatics and machine-learning software written in C++ and Python."
 arch=("i686" "x86_64")
 url="http://rdkit.org/"
 license=('New BSD License')
 _py3ver=3.6
 _py2ver=2.7
-_py3dep="python=${_py3ver}.0"
+_py3dep="python=${_py3ver}.1"
 _py2dep="python2=${_py2ver}.13"
 makedepends=('bison' 'boost' 'cmake' 'flex' $_py3dep $_py2dep 'python-numpy' 'python2-numpy' 'sqlite3')
 _commondepends=('boost-libs=1.63.0' 'sqlite')
