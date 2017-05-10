@@ -1,8 +1,6 @@
 autodock-vina
-bazel
 cachefilesd
 cnmem
-cudnn
 direnv
 influxdb
 intel-parallel-studio-xe
@@ -12,11 +10,8 @@ nodejs-configurable-http-proxy
 python-alembic
 python-editor
 python-pamela
-python-tensorflow
 q
 telegraf
-tensorflow
-yarn
 git-lfs
 systemd-zpool-scrub
 vmd
