@@ -1,0 +1,22 @@
+pkgbase = jupyterhub
+	pkgdesc = Multi-user server for Jupyter notebooks
+	pkgver = 0.7.2
+	pkgrel = 1
+	url = http://jupyter.org/
+	arch = any
+	license = BSD
+	makedepends = bower
+	makedepends = npm
+	depends = python-alembic
+	depends = python-tornado
+	depends = python-jinja
+	depends = ipython
+	depends = python-pamela
+	depends = python-sqlalchemy
+	depends = python-requests
+	depends = nodejs-configurable-http-proxy
+	source = https://github.com/jupyter/jupyterhub/archive/0.7.2.tar.gz
+	md5sums = 74698104e3a1753044a7d446069a525c
+
+pkgname = jupyterhub
+

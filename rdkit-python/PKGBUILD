@@ -1,0 +1,60 @@
+_pkgname=RDKit
+
+pkgname=(rdkit-python rdkit-python2)
+pkgver=2017_03_2
+pkgrel=1
+pkgdesc="RDKit - A collection of cheminformatics and machine-learning software written in C++ and Python."
+arch=("i686" "x86_64")
+url="http://rdkit.org/"
+license=('New BSD License')
+_py3ver=3.6
+_py2ver=2.7
+_py3dep="python=${_py3ver}.1"
+_py2dep="python2=${_py2ver}.13"
+makedepends=('bison' 'boost' 'cmake' 'flex' $_py3dep $_py2dep 'python-numpy' 'python2-numpy' 'sqlite3')
+_commondepends=('boost-libs=1.64.0' 'sqlite')
+source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz)
+sha256sums=('1c063ee2b8af56dede421aa875c6c0b96ad28724a158daa040fffccafc58daeb')
+
+build() {
+    mkdir $srcdir/{build-python,build-python2}
+    cd $srcdir/build-python
+    cmake ../rdkit-Release_${pkgver} \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DRDK_INSTALL_INTREE=0 \
+        -DCMAKE_INSTALL_PREFIX=/opt/rdkit-python \
+        -DPYTHON_LIBRARY=/usr/lib/libpython${_py3ver}m.so \
+        -DPYTHON_INCLUDE_DIR=/usr/include/python${_py3ver}m/ \
+        -DPYTHON_EXECUTABLE=/usr/bin/python3 \
+        -DCMAKE_INSTALL_RPATH=/opt/rdkit-python/lib
+    make
+
+    cd $srcdir/build-python2
+    cmake ../rdkit-Release_${pkgver} \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DRDK_INSTALL_INTREE=0 \
+        -DCMAKE_INSTALL_PREFIX=/opt/rdkit-python2 \
+        -DPYTHON_LIBRARY=/usr/lib/libpython${_py2ver}.so \
+        -DPYTHON_INCLUDE_DIR=/usr/include/python${_py2ver}/ \
+        -DPYTHON_EXECUTABLE=/usr/bin/python2 \
+        -DCMAKE_INSTALL_RPATH=/opt/rdkit-python2/lib
+    make
+}
+
+package_rdkit-python() {
+    depends=("${_commondepends[@]}" $_py3dep "python-numpy")
+    provides=('rdkit-python')
+    cd ${srcdir}/build-python
+    make DESTDIR=${pkgdir} install
+    mkdir -p $pkgdir/usr/lib/python${_py3ver}/site-packages
+    echo /opt/rdkit-python/lib/python${_py3ver}/site-packages > $pkgdir/usr/lib/python${_py3ver}/site-packages/rdkit.pth
+}
+
+package_rdkit-python2() {
+    depends=("${_commondepends[@]}" $_py2dep "python2-numpy")
+    provides=('rdkit-python2')
+    cd ${srcdir}/build-python2
+    make DESTDIR=${pkgdir} install
+    mkdir -p $pkgdir/usr/lib/python${_py2ver}/site-packages
+    echo /opt/rdkit-python2/lib/python${_py2ver}/site-packages > $pkgdir/usr/lib/python${_py2ver}/site-packages/rdkit.pth
+}
