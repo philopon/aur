@@ -1,8 +1,8 @@
 #!/bin/bash
 
 pkgname=recpt1-git
-pkgver=r20.d650665
-pkgrel=2
+pkgver=r28.c7c9d07
+pkgrel=1
 pkgdesc="recpt1(STZ)"
 arch=('x86_64')
 url="https://github.com/stz2012/recpt1"
