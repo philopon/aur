@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pkgname=libarib25-git
-pkgver=r6.6b47a28
+pkgver=r36.3de91ec
 pkgrel=2
 pkgdesc="ARIB STD-B25 library for linux"
 arch=('x86_64')
@@ -18,19 +18,13 @@ pkgver(){
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-prepare(){
-  cd $srcdir/libarib25/src
-  patch < $startdir/Makefile.patch
-}
-
 build(){
   cd $srcdir/libarib25
+  cmake -DCMAKE_INSTALL_PREFIX=$pkgdir/usr .
   make
 }
 
 package() {
   cd $srcdir/libarib25
-  mkdir -p $pkgdir/usr/lib
-  mkdir -p $pkgdir/usr/bin
   make PREFIX="$pkgdir/usr" install
 }
