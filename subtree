@@ -16,3 +16,5 @@ git-lfs
 systemd-zpool-scrub
 vmd
 arch-checkrestart
+prometheus-bin
+prometheus-node-exporter-bin
