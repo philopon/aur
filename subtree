@@ -1,9 +1,6 @@
 autodock-vina
-cachefilesd
 cnmem
 direnv
-influxdb
-intel-parallel-studio-xe
 jupyterhub
 nkf
 nodejs-configurable-http-proxy
@@ -11,7 +8,6 @@ python-alembic
 python-editor
 python-pamela
 q
-telegraf
 git-lfs
 systemd-zpool-scrub
 vmd
