@@ -1,0 +1,9 @@
+[Unit]
+Description=Prometheus NVIDIA GPU Exporter 
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/prometheus_nvidia_exporter
+
+[Install]
+WantedBy=multi-user.target

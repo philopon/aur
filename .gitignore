@@ -18,3 +18,4 @@ telegraf/telegraf/
 tensorflow/tensorflow/
 slackcat/slackcat/
 systemd-zpool-scrub/systemd-zpool-scrub/
+prometheus-nvidia-exporter-git/nvidia_exporter/

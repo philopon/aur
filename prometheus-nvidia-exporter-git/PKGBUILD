@@ -1,0 +1,31 @@
+#!/bin/bash
+
+pkgname=prometheus-nvidia-exporter-git
+pkgver=r5.5525601
+pkgrel=2
+pkgdesc=" Prometheus NVIDIA GPU Exporter "
+arch=('x86_64')
+url="https://github.com/tankbusta/nvidia_exporter"
+license=('MIT')
+depends=('cuda')
+makedepends=('go')
+# install=${pkgname}.install
+source=(git+https://github.com/tankbusta/nvidia_exporter.git prometheus-nvidia-exporter.service)
+sha256sums=(SKIP SKIP)
+provides=('prometheus-nvidia-exporter')
+
+pkgver() {
+    cd "$srcdir/nvidia_exporter"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)" 
+}
+
+build() {
+    export GOPATH=$srcdir/gopath
+    CGO_CFLAGS="-I/opt/cuda/include" go get github.com/tankbusta/nvidia_exporter
+}
+
+package() {
+    install -D -m0755 $srcdir/gopath/bin/nvidia_exporter $pkgdir/usr/bin/prometheus_nvidia_exporter
+    install -D -m0644 $srcdir/prometheus-nvidia-exporter.service\
+        $pkgdir/usr/lib/systemd/system/prometheus-nvidia-exporter.service
+}
