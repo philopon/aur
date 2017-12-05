@@ -1,8 +1,8 @@
 _pkgname=RDKit
 
 pkgname="rdkit-python"
-pkgver=2017_09_1
-pkgrel=3
+pkgver=2017_09_2
+pkgrel=1
 pkgdesc="RDKit - A collection of cheminformatics and machine-learning software written in C++ and Python."
 arch=("i686" "x86_64")
 url="http://rdkit.org/"
@@ -19,13 +19,8 @@ pythonnext=$pythonmajor.$((pythonminor + 1))
 makedepends=("eigen" "bison" "boost>=${boostver}" "boost<${boostnext}" "cmake" "flex" "python>=${pythonver}" "python<${pythonnext}" "python-numpy" "python-six" "python-pillow" "python2-numpy" "python2-six" "python2-pillow" "sqlite3")
 depends=("boost-libs>=${boostver}" "boost-libs<${boostnext}" "sqlite" "python>=${pythonver}" "python<${pythonnext}" "python-numpy")
 
-source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz boost-1.65.patch)
-sha256sums=("6a6718896452cc55b84db6f59e95c6a91cc4091b2cda9960b74542363524808b" SKIP)
-
-prepare() {
-    cd $srcdir/rdkit-Release_${pkgver}
-    patch -p1 < ../boost-1.65.patch
-}
+source=(https://github.com/rdkit/rdkit/archive/Release_${pkgver}.tar.gz)
+sha256sums=("20b4d18bdeb457c95386bd2f6efad64321cb7f1dd885c0e630845933d1276a83")
 
 build() {
     mkdir -p $srcdir/rdkit-Release_${pkgver}/build
